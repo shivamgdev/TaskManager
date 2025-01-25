@@ -8,6 +8,7 @@ const HomeScreen: React.FC = ({navigation}: any) => {
   const {
     filteredTasks,
     addTask,
+    editTask,
     deleteTask,
     toggleComplete,
     setFilter,
@@ -34,7 +35,9 @@ const HomeScreen: React.FC = ({navigation}: any) => {
         />
         <TaskList
           tasks={filteredTasks}
-          onEdit={task => navigation.navigate('EditTask', {task})}
+          onEdit={task =>
+            navigation.navigate('EditTask', {task, onSubmit: editTask})
+          }
           onDelete={deleteTask}
           onToggleComplete={toggleComplete}
         />

@@ -18,11 +18,11 @@ const TaskForm: React.FC<TaskFormProps> = () => {
   const navigation = useNavigation();
   const route = useRoute<AddTaskProps['route'] | EditTaskProps['route']>();
 
-  const {onSubmit} = route.params as
+  const {onSubmit} = route?.params as
     | AddTaskProps['route']['params']
     | EditTaskProps['route']['params'];
   const task =
-    (route.params as EditTaskProps['route']['params']).task || undefined;
+    (route?.params as EditTaskProps['route']['params'])?.task || undefined;
 
   const [title, setTitle] = useState(task?.title || '');
   const [description, setDescription] = useState(task?.description || '');
